@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Inter";
+    src: url(./fonts/Inter-Regular.otf);
+}
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: rgb(229, 229, 229);
+}

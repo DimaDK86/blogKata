@@ -6,6 +6,12 @@ import {
   updateUserProfile as updateUserApi,
 } from "../api/userApi";
 
+const initialState = {
+  user: JSON.parse(localStorage.getItem("user")) || null,
+  loading: false, // Было true, что вызывало бесконечную загрузку
+  error: null,
+};
+
 // Асинхронные действия
 export const login = createAsyncThunk(
   "auth/login",

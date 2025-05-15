@@ -1,38 +1,26 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, useCallback } from "react-redux";
 import { useEffect } from "react";
 import { fetchUser } from "../store/authSlice";
 import { useNavigate } from "react-router-dom";
 
-/**
- * Хук для работы с авторизацией
- * @returns {{
- *   user: object|null,
- *   isAuthenticated: boolean,
- *   isLoading: boolean,
- *   error: string|null,
- *   checkAuth: function
- * }}
- */
 export const useAuth = () => {
-  const { user, loading, error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const { user, loading } = useSelector((state) => state.auth);
 
-  const checkAuth = () => {
-    dispatch(fetchUser());
-  };
+  const checkAuth = useCallback(() => {
+    if (!user && !loading) {
+      dispatch(fetchUser());
+    }
+  }, [dispatch, user, loading]);
 
   useEffect(() => {
-    if (!user && !loading) {
-      checkAuth();
-    }
-  }, [user, loading]);
+    checkAuth();
+  }, [checkAuth]);
 
   return {
     user,
     isAuthenticated: !!user?.token,
     isLoading: loading,
-    error,
     checkAuth,
   };
 };

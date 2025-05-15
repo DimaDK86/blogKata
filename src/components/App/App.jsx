@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { Header } from "../Header/Header";
 import { Outlet } from "react-router-dom";
+import { LoadingIndicator } from "../common/LoadingIndicator/LoadingIndicator";
 
 export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +18,7 @@ export const App = () => {
   }, [checkAuth]);
 
   if (isLoading) {
-    return <div className="fullscreen-loader">Загрузка...</div>;
+    return <LoadingIndicator fullScreen />;
   }
 
   return (

@@ -1,18 +1,18 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Spinner } from "../components/UI/Spinner";
+import { LoadingIndicator } from "../common/LoadingIndicator/LoadingIndicator";
 
 export const PrivateRoute = ({ children }) => {
   const location = useLocation();
   const { user, loading } = useSelector((state) => state.auth);
 
   if (loading) {
-    return <Spinner />;
+    return <LoadingIndicator fullScreen />;
   }
 
-  if (!user?.token) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-
-  return children;
+  return user?.token ? (
+    children
+  ) : (
+    <Navigate to="/login" state={{ from: location }} replace />
+  );
 };

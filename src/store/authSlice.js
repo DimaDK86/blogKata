@@ -3,32 +3,30 @@ import {
   login as loginApi,
   register as registerApi,
   getCurrentUser as fetchUserApi,
-  updateUser as updateUserApi,
 } from "../api/userApi";
 
-// Асинхронные действия
-export const login = createAsyncThunk(
+export const loginUser = createAsyncThunk(
   "auth/login",
-  async ({ email, password }, { rejectWithValue }) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      const { user } = await loginApi(email, password);
-      localStorage.setItem("user", JSON.stringify(user));
-      return user;
+      const response = await loginApi(credentials);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      return response.data.user;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.response?.data?.errors);
     }
   },
 );
 
-export const register = createAsyncThunk(
+export const registerUser = createAsyncThunk(
   "auth/register",
-  async ({ username, email, password }, { rejectWithValue }) => {
+  async (userData, { rejectWithValue }) => {
     try {
-      const { user } = await registerApi(username, email, password);
-      localStorage.setItem("user", JSON.stringify(user));
-      return user;
+      const response = await registerApi(userData);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      return response.data.user;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.response?.data?.errors);
     }
   },
 );
@@ -39,24 +37,12 @@ export const fetchCurrentUser = createAsyncThunk(
     try {
       const token = getState().auth.user?.token;
       if (!token) return rejectWithValue("No token");
-      const { user } = await fetchUserApi(token);
-      return user;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
-  },
-);
 
-export const updateUserProfile = createAsyncThunk(
-  "auth/updateUser",
-  async (userData, { getState, rejectWithValue }) => {
-    try {
-      const token = getState().auth.user?.token;
-      const { user } = await updateUserApi(token, userData);
-      localStorage.setItem("user", JSON.stringify(user));
-      return user;
+      const response = await fetchUserApi(token);
+      return response.data.user;
     } catch (error) {
-      return rejectWithValue(error);
+      localStorage.removeItem("user");
+      return rejectWithValue(error.response?.data?.errors);
     }
   },
 );
@@ -75,7 +61,31 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // ... (ваши существующие reducers)
+    builder
+      .addMatcher(
+        (action) =>
+          action.type.startsWith("auth/") && action.type.endsWith("/pending"),
+        (state) => {
+          state.loading = true;
+          state.error = null;
+        },
+      )
+      .addMatcher(
+        (action) =>
+          action.type.startsWith("auth/") && action.type.endsWith("/rejected"),
+        (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        },
+      )
+      .addMatcher(
+        (action) =>
+          action.type.startsWith("auth/") && action.type.endsWith("/fulfilled"),
+        (state, action) => {
+          state.loading = false;
+          state.user = action.payload;
+        },
+      );
   },
 });
 

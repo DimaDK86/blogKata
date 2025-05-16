@@ -1,18 +1,14 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useAuth } from "../../hooks/useAuth";
 import { LoadingIndicator } from "../common/LoadingIndicator/LoadingIndicator";
 
 export const PrivateRoute = ({ children }) => {
   const location = useLocation();
-  const { user, loading } = useSelector((state) => state.auth);
+  const { isAuthenticated, isLoading } = useAuth();
 
-  if (loading) {
-    return <LoadingIndicator fullScreen />;
-  }
+  if (isLoading) return <LoadingIndicator />;
+  if (!isAuthenticated)
+    return <Navigate to="/login" state={{ from: location }} replace />;
 
-  return user?.token ? (
-    children
-  ) : (
-    <Navigate to="/login" state={{ from: location }} replace />
-  );
+  return children;
 };

@@ -1,15 +1,10 @@
-import { Alert } from "antd";
+import styles from "./ErrorNotification.module.css";
 
 export const ErrorNotification = ({ error }) => {
-  const message =
-    error?.data?.errors?.message || error?.message || "Произошла ошибка";
   return (
-    <Alert
-      message="Ошибка"
-      description={message}
-      type="error"
-      showIcon
-      closable
-    />
+    <div className={styles.container}>
+      <h3>Error</h3>
+      <p>{error?.message || "Something went wrong"}</p>
+    </div>
   );
 };

@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { formatDate } from "../../utils/dateFormatter";
-import styles from "./ArticleCard.module.css";
+import styles from "./ArticleContent.module.css";
 
-export const ArticleCard = ({ article }) => {
+export const ArticleContent = ({ article }) => {
   return (
-    <div className={styles.card}>
+    <article className={styles.article}>
       <div className={styles.header}>
+        <h1 className={styles.title}>{article.title}</h1>
         <div className={styles.meta}>
           <Link
             to={`/profile/${article.author.username}`}
@@ -24,15 +25,11 @@ export const ArticleCard = ({ article }) => {
             </div>
           </Link>
         </div>
-        <div className={styles.likes}>
-          <span>♥ {article.favoritesCount}</span>
-        </div>
       </div>
-      <Link to={`/article/${article.slug}`} className={styles.content}>
-        <h3 className={styles.title}>{article.title}</h3>
-        <p className={styles.description}>{article.description}</p>
-      </Link>
-      <div className={styles.footer}>
+      <div className={styles.content}>
+        <p>{article.body}</p>
+      </div>
+      {article.tagList.length > 0 && (
         <div className={styles.tags}>
           {article.tagList.map((tag) => (
             <span key={tag} className={styles.tag}>
@@ -40,7 +37,7 @@ export const ArticleCard = ({ article }) => {
             </span>
           ))}
         </div>
-      </div>
-    </div>
+      )}
+    </article>
   );
 };

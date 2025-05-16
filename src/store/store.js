@@ -1,13 +1,12 @@
-// src/store/store.js
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./authSlice";
-import { blogApi } from "../api/blogApi"; // Добавьте этот импорт
+import { apiSlice } from "./api/apiSlice"; // 👈 Подключаем базовый API
+import authReducer from "./auth/authSlice"; // 👈 Оставляем только локальное состояние (токен, user)
 
 export const store = configureStore({
   reducer: {
-    auth: authReducer,
-    [blogApi.reducerPath]: blogApi.reducer, // Добавьте редьюсер API
+    [apiSlice.reducerPath]: apiSlice.reducer, // 👈 Добавляем редюсер RTK Query
+    auth: authReducer, // 👈 Оставляем auth reducer (без thunks)
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(blogApi.middleware), // Добавьте middleware
+    getDefaultMiddleware().concat(apiSlice.middleware), // 👈 Добавляем middleware RTK Query
 });

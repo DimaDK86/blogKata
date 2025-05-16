@@ -1,0 +1,46 @@
+.header {
+  /* @background-color-base */
+  background: rgb(255, 255, 255);
+  padding: 12px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.user-menu,
+.auth-links {
+  display: flex;
+  gap: 20px;
+}
+
+.signIn {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.signUp {
+  color: rgb(82, 196, 26);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  box-sizing: border-box;
+  /* @success-color */
+  border: 1px solid rgb(82, 196, 26);
+  border-radius: 5px;
+  padding: 8px;
+}

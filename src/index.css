@@ -7,8 +7,12 @@
     font-family: "Inter", sans-serif;
 }
 
+a {
+    text-decoration: none;
+
+}
+
 body {
-    max-width: 960px;
     margin: 0 auto;
     background-color: rgb(229, 229, 229);
 }

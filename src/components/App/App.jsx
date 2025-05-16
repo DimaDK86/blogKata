@@ -1,26 +1,32 @@
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Header } from "../Header/Header";
-import { Footer } from "../Footer/Footer";
-import { LoadingIndicator } from "../common/LoadingIndicator/LoadingIndicator";
-import { useAuth } from "../../hooks/useAuth";
+import { ArticlesList } from "../ArticlesList/ArticlesList";
+import { ArticlePage } from "../ArticlePage/ArticlePage";
+import { Login } from "../Login/Login";
+import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
+import { ArticleEditor } from "../ArticleEditor/ArticleEditor";
 
 export const App = () => {
-  const { isLoading } = useAuth();
-
-  if (isLoading) {
-    return <LoadingIndicator fullScreen />;
-  }
-
   return (
     <div className="app">
       <Header />
-      <main className="app-content">
-        <Suspense fallback={<LoadingIndicator />}>
-          <Outlet />
-        </Suspense>
+      <main>
+        <Routes>
+          {/* Главная страница со списком статей */}
+          <Route path="/" element={<ArticlesList />} />
+
+          {/* Страница отдельной статьи */}
+          <Route path="/articles/:slug" element={<ArticlePage />} />
+
+          {/* Защищенные маршруты */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/create-article" element={<ArticleEditor />} />
+          </Route>
+
+          {/* Авторизация */}
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </main>
-      <Footer />
     </div>
   );
 };

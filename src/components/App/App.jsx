@@ -24,6 +24,7 @@ export const App = () => {
             <Route path="/editor" element={<ArticleEditor />} />
             <Route path="/editor/:slug" element={<EditArticle />} />
             <Route path="/profile" element={<ProfilePage />} />
+            {/* <Route path="*" element={<NotFound />} /> */}
           </Route>
         </Routes>
       </main>

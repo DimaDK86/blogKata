@@ -1,10 +1,13 @@
+import { useFetchPostsQuery } from "../../api/blogApi"; // Измените импорт
 import { useState } from "react";
-import { useGetArticlesQuery } from "../../api/blogApi";
+// import { useGetArticlesQuery } from "../../api/blogApi";
 import { ArticleCard } from "../ArticleCard/ArticleCard";
 import { LoadingIndicator } from "../common/LoadingIndicator/LoadingIndicator";
 import { ErrorNotification } from "../common/ErrorNotification/ErrorNotification";
 import { PaginationControls } from "../common/Pagination/Pagination";
 import styles from "./ArticlesList.module.css";
+
+import { useGetArticlesQuery } from "../../api/blogApi"; // Измененный импорт
 
 export const ArticlesList = () => {
   const [page, setPage] = useState(1);

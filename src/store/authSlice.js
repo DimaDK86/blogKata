@@ -53,6 +53,7 @@ const authSlice = createSlice({
     user: JSON.parse(localStorage.getItem("user")) || null,
     loading: false,
     error: null,
+    initialized: false, // Добавьте это поле
   },
   reducers: {
     logout: (state) => {

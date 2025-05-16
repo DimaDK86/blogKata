@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { useGetArticlesQuery } from "../../api/blogApi";
 import "./Header.css";
 
 export const Header = () => {
@@ -11,6 +12,13 @@ export const Header = () => {
       <Link to="/" className="logo">
         Realworld Blog
       </Link>
+      <button
+        onClick={() =>
+          console.log(useGetArticlesQuery({ limit: 5, offset: 0 }))
+        }
+      >
+        Test API
+      </button>
       <nav>
         {isAuthenticated ? (
           <div className="user-menu">

@@ -3,8 +3,8 @@ import { useAuth } from "../../hooks/useAuth";
 import { LoadingIndicator } from "../common/LoadingIndicator/LoadingIndicator";
 
 export const PrivateRoute = ({ children }) => {
-  const { isAuthenticated, isLoading } = useAuth();
   const location = useLocation();
+  const { isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) return <LoadingIndicator />;
   return isAuthenticated ? (

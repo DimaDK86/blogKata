@@ -1,0 +1,36 @@
+.postPage {
+  width: 941px;
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  flex-direction: column;
+}
+.spinner_wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+.error_wrapper {
+  display: flex;
+  width: auto;
+  height: 40px;
+  margin: 0 auto;
+}
+.post_mardown {
+  max-width: 880px;
+  max-height: 685px;
+
+  overflow: auto;
+  padding: 40px 20px 20px 20px;
+}
+.post_mardown ul,
+.post_mardown ol {
+  margin-left: 24px;
+}
+
+.post_mardown li {
+  margin-bottom: 6px; /* расстояние между пунктами списка */
+}

@@ -1,0 +1,114 @@
+.container_post {
+  display: flex;
+  flex-direction: column;
+  width: 938px;
+  height: auto;
+  background: #ffffff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+}
+.post_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.post_header_about {
+  width: 682px;
+}
+.post_header_user {
+  display: flex;
+  flex-direction: row;
+}
+.post_header_user_info {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.post_title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  margin-right: 5px;
+  color: rgba(24, 144, 255, 1);
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.post_likes {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+.icon_like {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.icon_like:hover {
+  color: red;
+}
+.icon_like_disabled {
+  cursor: not-allowed;
+  color: gray;
+}
+.icon_like_disabled:hover {
+  cursor: not-allowed;
+  color: gray;
+}
+.tag_name {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  max-width: 70px;
+  padding: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  cursor: pointer;
+}
+
+.user_name {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+.user_date {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  vertical-align: middle;
+}
+.post_content {
+  width: 682px;
+  height: 45px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: initial;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}

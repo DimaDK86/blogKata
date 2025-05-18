@@ -1,0 +1,23 @@
+.commentsSection {
+  margin-top: 48px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 24px;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.commentForm {
+  margin-bottom: 32px;
+}
+
+.commentList {
+  margin-top: 16px;
+}
+
+.commentList .ant-list-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}

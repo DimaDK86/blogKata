@@ -1,0 +1,19 @@
+.layout {
+  min-height: 100vh;
+}
+
+.content {
+  padding: 24px;
+  background: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.footer {
+  text-align: center;
+  background: #f0f2f5;
+}

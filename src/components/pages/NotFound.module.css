@@ -1,0 +1,19 @@
+.notFoundContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+/* Анимация для 404 страницы */
+.notFoundContainer :global(.ant-result-title) {
+  font-size: 72px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

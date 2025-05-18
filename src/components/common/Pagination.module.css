@@ -1,0 +1,35 @@
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+  padding: 8px;
+}
+
+.pagination :global(.ant-pagination-item) {
+  border-radius: 4px;
+  margin: 0 4px;
+}
+
+.pagination :global(.ant-pagination-item-active) {
+  border-color: #1890ff;
+  font-weight: 500;
+}
+
+.pagination :global(.ant-pagination-item-active a) {
+  color: #1890ff;
+}
+
+.pagination :global(.ant-pagination-options) {
+  margin-left: 16px;
+}
+
+.pagination :global(.ant-pagination-total-text) {
+  margin-right: 16px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+@media (max-width: 768px) {
+  .pagination :global(.ant-pagination-options) {
+    display: none;
+  }
+}

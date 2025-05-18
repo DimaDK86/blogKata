@@ -1,0 +1,38 @@
+/* Базовые стили спиннера */
+.spinner {
+  display: inline-block;
+}
+
+/* Обертка для полноэкранного режима */
+.fullscreenWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+}
+
+/* Обертка для inline-режима */
+.inlineWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Кастомизация текста подсказки */
+.spinner :global(.ant-spin-text) {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #1890ff;
+}
+
+/* Анимация для лучшей производительности */
+.spinner :global(.ant-spin-dot-item) {
+  background-color: #1890ff;
+  animation: antSpinMove 1s infinite linear alternate;
+}

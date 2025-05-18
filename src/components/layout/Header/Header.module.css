@@ -1,0 +1,104 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.darkHeader {
+  background-color: #001529;
+  color: white;
+}
+
+.lightHeader {
+  background-color: white;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.logo:hover {
+  color: #1890ff;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  color: inherit;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #1890ff;
+}
+
+.linkActive {
+  border: 1px solid #1890ff;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+.linkActive:hover {
+  color: white;
+  background-color: #1890ff;
+}
+
+.authLink {
+  padding: 6px 12px;
+}
+
+.createButton {
+  padding: 6px 12px;
+  border: 1px solid #52c41a;
+  border-radius: 4px;
+  color: #52c41a;
+}
+
+.createButton:hover {
+  color: white;
+  background-color: #52c41a;
+}
+
+.userAvatar {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.userAvatar:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.username {
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .username {
+    display: none;
+  }
+  
+  .createButton span {
+    display: none;
+  }
+}

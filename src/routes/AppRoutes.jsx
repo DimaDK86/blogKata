@@ -1,15 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
-import Layout from '../components/layout/Layout';
-import HomePage from '../pages/HomePage';
-import LoginPage from '../pages/auth/LoginPage';
-import RegisterPage from '../pages/auth/RegisterPage';
-import ProfilePage from '../pages/profile/ProfilePage';
-import EditProfilePage from '../pages/profile/EditProfilePage';
-import PostListPage from '../pages/posts/PostListPage';
-import PostPage from '../pages/posts/PostPage';
-import PostCreatePage from '../pages/posts/PostCreatePage';
-import PostEditPage from '../pages/posts/PostEditPage';
-import NotFoundPage from '../pages/NotFoundPage';
+import Layout from '@components/layout/Layout';
+import HomePage from '@pages/HomePage';
+import LoginPage from '@pages/auth/LoginPage';
+import RegisterPage from '@pages/auth/RegisterPage';
+import ProfilePage from '@pages/profile/ProfilePage';
+import EditProfilePage from '@pages/profile/EditProfilePage';
+import PostListPage from '@pages/posts/PostListPage';
+import PostPage from '@pages/posts/PostPage';
+import PostCreatePage from '@pages/posts/PostCreatePage';
+import PostEditPage from '@pages/posts/PostEditPage';
+import NotFoundPage from '@pages/NotFoundPage';
 import PrivateRoute from './PrivateRoute';
 
 const AppRoutes = () => {
